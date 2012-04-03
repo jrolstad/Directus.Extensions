@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Directus.Extensions.Core</id>
+        <version>1.0.1</version>
+        <authors>Josh Rolstad</authors>
+        <owners>Josh Rolstad</owners>
+        <description>Core extension methods for native types</description>
+		<projectUrl>http://github.com/jrolstad/Directus.Extensions</projectUrl>
+        <copyright>Copyright 2012</copyright>
+        <tags>extensions extensionmethods dictionary string</tags>
+         <dependencies>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Directus.Extensions.Core\bin\Release\Directus.Extensions.Core.dll" target="lib\net40"/>
+    </files>
+	
+</package>

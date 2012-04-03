@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Directus.Extensions.MVC</id>
+        <version>1.0.1</version>
+        <authors>Josh Rolstad</authors>
+        <owners>Josh Rolstad</owners>
+        <description>Extension methods for usage in ASP.NET MVC appliations</description>
+		<projectUrl>http://github.com/jrolstad/Directus.Extensions</projectUrl>
+        <copyright>Copyright 2011</copyright>
+        <tags>system mvc</tags>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Web.Mvc" targetFramework=".NETFramework4.0" />
+		</frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="Directus.Extensions.MVC\bin\Release\Directus.Extensions.MVC.dll" target="lib\net40"/>
+    </files>
+	
+</package>
