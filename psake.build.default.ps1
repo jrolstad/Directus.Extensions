@@ -33,15 +33,15 @@ Task NugetPack -Depends Build {
     }
     gci  *.nuspec | 
         ForEach-Object {
-            $expression = "nuget.exe pack {0} -Build -OutputDirectory GeneratedPackages" -f $_.Name
+            $expression = "nuget.exe pack {0} -Build -OutputDirectory {1}" -f $_.Name, $nugetPackagesDirectory
             Invoke-Expression $expression
         }
-
+}
 Task NugetDeploy -Depends NugetPack {
    
     gci $nugetPackagesDirectory  *.nupkg | 
         ForEach-Object {
             $expression = "nuget.exe push {0} -ApiKey {1}" -f $_.Name, $nugetApiKey
-            Invoke-Expression $expression
+            Invoke-Expression write-host $expression
         }
 }
