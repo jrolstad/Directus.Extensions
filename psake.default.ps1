@@ -1,8 +1,7 @@
-﻿
+
 Properties {
 	$build_dir = Split-Path $psake.build_script_file	
     $nugetPackagesDirectory = Join-Path $build_dir "GeneratedPackages"
-	$nugetApiKey = "<API Key Here>"
 }
 
 FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
@@ -33,7 +32,7 @@ Task NugetPack -Depends Build {
     }
     gci  *.nuspec | 
         ForEach-Object {
-            $expression = "nuget.exe pack {0} -Build -OutputDirectory {1}" -f $_.Name, $nugetPackagesDirectory
+            $expression = ".\.nuget\nuget.exe pack {0} -Build -OutputDirectory {1}" -f $_.Name, $nugetPackagesDirectory
             Invoke-Expression $expression
         }
 }
@@ -41,7 +40,7 @@ Task NugetDeploy -Depends NugetPack {
    
     gci $nugetPackagesDirectory  *.nupkg | 
         ForEach-Object {
-            $expression = "nuget.exe push {0} -ApiKey {1}" -f $_.Name, $nugetApiKey
+            $expression = ".\.nuget\nuget.exe push {0} -ApiKey {1}" -f $_.Name, $nugetApiKey
             Invoke-Expression write-host $expression
         }
 }
